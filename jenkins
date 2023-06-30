@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Install') {
+            steps {
+                echo 'Install'
+                sh 'npm install'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo 'Build'
+
+                sh "npm build"
+            }
+        }
+
+        stage('Copy to s3') {
+            steps {
+                echo 'Deploy'
+
+                sh "aws s3 cp dist/angular-demo s3://angulardeploy7997"
+            }
+        }
+
+    }
+}
