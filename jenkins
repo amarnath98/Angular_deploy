@@ -13,7 +13,7 @@ pipeline {
             steps {
                 echo 'Build'
 
-                sh "npm run build"
+                sh "ng build"
             }
         }
 
@@ -21,7 +21,7 @@ pipeline {
             steps {
                 echo 'Deploy'
 
-                sh "aws s3 cp dist/angular-demo s3://angulardeploy7997"
+                sh "ng deploy"
             }
         }
 
