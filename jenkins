@@ -21,7 +21,7 @@ pipeline {
             steps {
                 echo 'Deploy'
 
-                sh "ng deploy"
+                sh "aws s3 sync dist/angular-demo/ s3://angulardeploy7997"
             }
         }
 
